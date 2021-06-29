@@ -119,7 +119,7 @@ export class DefaultOkexRepository implements IOkexRepository {
             })
 
             if(response.data.code != '0'){
-                throw new OkexRepositoryError(`Client failed error code: ${response.data.data[0].sCode}: ${response.data.data[0].sMsg}`,'500');
+                throw new OkexRepositoryError(`Client failed error code: ${response.data.code}: ${response.data.msg}`,'500');
             }
 
             const asks = response.data.data[0].asks.map((ask: any[]) => {
