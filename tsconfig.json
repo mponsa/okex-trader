@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "lib": ["esnext"],
+        "target": "es2020",
+        "module": "commonjs",
+        "outDir": "dist",
+        "rootDir": "src",
+        "strict": true,
+        "noImplicitAny": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "types": ["node", "jest"],
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "typeRoots": ["./types", "./node_modules/@types"],
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
+    },
+    "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"],
+    "include": ["./src/**/*.tsx", "./src/**/*.ts"]
+}

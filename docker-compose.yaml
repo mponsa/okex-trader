@@ -1,0 +1,27 @@
+version: '3.3'
+services:
+  trader:
+    container_name: tradersql
+    image: mysql:5.7
+    restart: always
+    environment:
+        MYSQL_ROOT_PASSWORD: ${PASSWORD}
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - my-db:/var/lib/mysql
+      -   type: bind
+          source: ./src/db/init-db.sql
+          target: /docker-entrypoint-initdb.d/init.sql
+  traderapp:
+    container_name: traderapp
+    restart: always
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - trader
+volumes:
+  my-db:
